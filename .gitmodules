@@ -1,0 +1,3 @@
+[submodule "back/angular-app"]
+	path = back/angular-app
+	url = https://github.com/iamkarinams/ProjAS.git
