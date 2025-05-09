@@ -1,0 +1,24 @@
+<div class="max-w-md mx-auto mt-20 p-6 border rounded shadow">
+    <h2 class="text-xl font-bold mb-4">Login</h2>
+  
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label>Email</label>
+        <input type="email" formControlName="email" class="form-input w-full" />
+        <div *ngIf="submitted && f['email'].errors" class="text-red-500 text-sm">
+            <span *ngIf="f['email'].errors['required']">Email é obrigatório.</span>
+            <span *ngIf="f['email'].errors['email']">Email inválido.</span>
+          </div>
+          
+          <div *ngIf="submitted && f['password'].errors" class="text-red-500 text-sm">
+            <span *ngIf="f['password'].errors['required']">Senha é obrigatória.</span>
+          </div>
+          
+  
+      <div *ngIf="errorMessage" class="text-red-600 text-sm mb-2">{{ errorMessage }}</div>
+  
+      <button [disabled]="loading" class="bg-blue-500 text-white w-full py-2 rounded hover:bg-blue-600">
+        {{ loading ? 'Entrando...' : 'Entrar' }}
+      </button>
+  </div>
+  
